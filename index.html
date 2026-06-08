@@ -4,109 +4,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Quinito Pedro Luís</title>
+  <title>Quinito Pedro Luís | Data & IT Specialist Portfolio</title>
   <link rel="shortcut icon" href="Jhon02.png" type="image/x-icon">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Variáveis */
+    /* 1. IDENTIDADE VISUAL TECH & DARK MODE SOFISTICADO */
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #64748b;
-      --bg-light: #f8fafc;
-      --text-dark: #1e293b;
-      --accent: #ff6600;
-      --transition: all 0.3s ease;
+      --bg-dark: #0b0f19;
+      --bg-card: #111827;
+      --bg-card-hover: #1e293b;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      --accent: #06b6d4; /* Azul Ciano Neon */
+      --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #10b981 100%); /* Ciano para Esmeralda */
+      --border-color: rgba(148, 163, 184, 0.1);
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-sans: 'Inter', sans-serif;
     }
 
-    /* Reset e Global */
+    /* Reset Geral */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: var(--font-sans);
     }
 
     body {
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
+      background-color: var(--bg-dark);
+      color: var(--text-muted);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    /* Header */
-    header {
-      background: url('imagemfundo.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 3rem 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+    strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Títulos Globais */
+    h2 {
+      font-size: 2rem;
+      color: var(--text-main);
       text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+      font-weight: 700;
+      letter-spacing: -0.025em;
     }
 
-    header::before {
-      content: "";
+    h2::after {
+      content: '';
       position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    section {
+      margin-bottom: 7rem;
+    }
+
+    /* Componentes Globais - Botões de Ação (CTA) */
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      background: var(--accent-gradient);
+      color: var(--bg-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+      filter: brightness(1.1);
+    }
+
+    .read-more::after {
+      content: ' →';
+      transition: var(--transition);
+    }
+
+    .read-more:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* 2. REESTRUTURAÇÃO DE ARQUITETURA E UX LAYOUT */
+    
+    /* Hero Section (Layout em Duas Colunas Grid) */
+    header {
+      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.08), transparent 45%),
+                  radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05), transparent 45%),
+                  var(--bg-dark);
+      border-bottom: 1px solid var(--border-color);
+      padding: 6rem 0;
+      position: relative;
     }
 
     .hero {
-      position: relative;
-      z-index: 1;
       max-width: 1200px;
+      margin: 0 auto;
       padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .hero img {
-      width: 150px;
-      height: 150px;
-      border: 4px solid white;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      margin-bottom: 1rem;
-      transition: var(--transition);
-      object-fit: cover;
-    }
-
-    .hero img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    .hero-content {
+      text-align: left;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      animation: fadeInDown 1s ease;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+      background: linear-gradient(to right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      opacity: 0.9;
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     .hero .location {
       font-size: 0.95rem;
-      color: #cbd5e1;
-      margin-bottom: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .social-icons {
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 720px;
+    }
+
+    /* Container de Imagem com Máscara Squircle & Glow Effect */
+    .hero-image-container {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      align-items: center;
+    }
+
+    .hero img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 24% 76% 35% 65% / 49% 45% 55% 51%; /* Squircle Assimétrico Moderno */
+      border: 2px solid rgba(6, 182, 212, 0.4);
+      background: var(--bg-card);
+      padding: 6px;
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.2), inset 0 0 20px rgba(6, 182, 212, 0.2);
+      transition: var(--transition);
+      animation: morphingProfile 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes morphingProfile {
+      0% { border-radius: 24% 76% 35% 65% / 49% 45% 55% 51%; }
+      100% { border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%; }
+    }
+
+    .hero img:hover {
+      transform: scale(1.03) rotate(1deg);
+      border-color: var(--accent);
+      box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+    }
+
+    /* Redes Sociais Minimalistas */
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
 
     .social-icons a {
-      background: rgba(255, 255, 255, 0.3);
-      padding: 1rem;
-      border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
       transition: var(--transition);
       display: flex;
       align-items: center;
@@ -114,121 +225,85 @@
     }
 
     .social-icons a:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      background: rgba(6, 182, 212, 0.05);
     }
 
     .social-icons img {
-      width: 32px;
-      height: 32px;
+      width: 20px;
+      height: 20px;
+      filter: invert(0.8) sepia(1) heading; /* Ajusta os ícones nativos para contrastar no escuro */
+      object-fit: contain;
     }
 
-    /* Main */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    h2 {
-      font-size: 2rem;
+    /* CV Section */
+    .cv-section {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(17, 24, 39, 0.5) 100%);
+      padding: 3rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
       text-align: center;
+    }
+
+    .cv-section p {
       margin-bottom: 2rem;
-      position: relative;
-      padding-bottom: 1rem;
-      color: var(--text-dark);
+      font-size: 1.1rem;
     }
 
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: var(--primary);
-    }
-
-    /* Grids e Cards */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      transition: var(--transition);
-      border: 1px solid #e2e8f0;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary);
-    }
-
-    .card h4 {
-      font-size: 1rem;
-      color: var(--secondary);
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      color: #475569;
-    }
-
-    .metric {
-      font-weight: bold;
-      color: var(--accent);
-    }
-
-    .read-more {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: var(--primary);
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 0.9rem;
-    }
-
-    .read-more:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Secção de Experiência Estilizada */
+    /* Timeline de Experiência Interativa */
     .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      position: relative;
       max-width: 900px;
       margin: 0 auto;
+      padding-left: 2.5rem;
+    }
+
+    /* Linha Vertical Contínua Real */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 5px;
+      bottom: 5px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), rgba(16, 185, 129, 0.3), transparent);
     }
 
     .timeline-item {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      border-left: 5px solid var(--primary);
+      position: relative;
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2.5rem;
+      transition: var(--transition);
+    }
+
+    .timeline-item:hover {
+      transform: translateX(5px);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Marcador da Timeline */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-2.5rem - 5px);
+      top: 2.8rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 3px solid var(--accent);
+      z-index: 2;
+      transition: var(--transition);
+    }
+
+    .timeline-item:hover::before {
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
     }
 
     .timeline-header {
@@ -236,97 +311,320 @@
       justify-content: space-between;
       align-items: flex-start;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #f1f5f9;
-      padding-bottom: 0.5rem;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
     }
 
     .timeline-title h3 {
-      font-size: 1.3rem;
-      color: var(--text-dark);
+      font-size: 1.4rem;
+      color: var(--text-main);
+      font-weight: 700;
     }
 
     .timeline-title h4 {
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 500;
+      margin-top: 0.25rem;
+      font-size: 1.05rem;
     }
 
     .timeline-date {
-      font-size: 0.9rem;
-      color: var(--secondary);
-      font-weight: bold;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: rgba(148, 163, 184, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 500;
     }
 
     .timeline-details {
-      list-style-type: disc;
-      padding-left: 1.2rem;
+      list-style: none;
     }
 
     .timeline-details li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       font-size: 0.95rem;
-      color: #334155;
+      position: relative;
+      padding-left: 1.5rem;
     }
 
-    /* Lista de Competências ATS e Idiomas */
+    .timeline-details li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Destaque de métricas de impacto */
+    .timeline-details strong {
+      color: var(--text-main);
+    }
+
+    /* Grid de Competências ATS */
     .skills-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
     .skills-block {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-      border-top: 3px solid var(--accent);
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .skills-block:hover {
+      border-color: rgba(16, 185, 129, 0.2);
+      transform: translateY(-2px);
     }
 
     .skills-block h3 {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
+      font-size: 1.15rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
     }
 
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .skill-tag {
-      background: #f1f5f9;
-      color: #334155;
-      padding: 0.3rem 0.7rem;
-      border-radius: 4px;
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
       font-size: 0.85rem;
       font-weight: 500;
+      transition: var(--transition);
     }
 
-    /* Footer */
-    footer {
-      background: var(--text-dark);
-      color: white;
-      text-align: center;
+    .skill-tag:hover {
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--accent);
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+
+    /* Customização dos idiomas sem quebrar as cores escuras */
+    .skills-block .skills-list .skill-tag[style*="background-color"] {
+      background-color: rgba(6, 182, 212, 0.1) !important;
+      color: var(--accent) !important;
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+
+    /* Formação Acadêmica */
+    .education-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
       padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid #10b981; /* Accent Verde Esmeralda */
+    }
+
+    .education-card h3 {
+      font-size: 1.4rem;
+      color: var(--text-main);
+    }
+
+    .education-card .institution {
+      color: #10b981;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .education-card .period {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Cards de Projetos & Certificações */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(6, 182, 212, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .card h4 {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .metric {
+      font-weight: 600;
+      color: #10b981; /* Verde esmeralda para dados positivos */
+    }
+
+    .card .read-more {
+      align-self: flex-start;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    /* 3. COMPONENTE DE CERTIFICAÇÕES EXPANSÍVEL CUSTOMIZADO */
+    .certifications-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Gatilho customizado */
+    .cert-trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: 2rem;
+    }
+
+    .cert-trigger-btn:hover {
+      border-color: var(--accent);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .cert-trigger-btn .arrow-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .cert-trigger-btn.active .arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Conteiner de transição suave em JS */
+    .cert-content-pane {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      text-align: left;
+    }
+
+    .cert-content-pane.open {
+      opacity: 1;
+      max-height: 2000px; /* Altura máxima segura para o grid */
+      margin-top: 1.5rem;
+    }
+
+    /* Rodapé (Footer) */
+    footer {
+      background: #070a12;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    footer p {
+      margin-bottom: 0.75rem;
     }
 
     footer a {
-      color: #63b3ed;
+      color: var(--accent);
       text-decoration: none;
+      transition: var(--transition);
     }
 
-    /* Animações */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer a:hover {
+      text-decoration: underline;
     }
 
-    /* Responsivo */
-    @media (max-width: 768px) {
-      .cards { grid-template-columns: 1fr; }
-      .timeline-header { flex-direction: column; gap: 0.5rem; }
+    /* Responsividade Fluida */
+    @media (max-width: 968px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      .hero .location {
+        justify-content: center;
+      }
+      .hero-image-container {
+        order: -1; /* Joga a imagem para cima em dispositivos móveis */
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 3rem 1.25rem;
+      }
+      section {
+        margin-bottom: 5rem;
+      }
+      .timeline {
+        padding-left: 1.5rem;
+      }
+      .timeline-item {
+        padding: 1.5rem;
+      }
+      .timeline-item::before {
+        left: calc(-1.5rem - 5px);
+      }
+      .cv-section {
+        padding: 2rem 1rem;
+      }
     }
   </style>
 </head>
@@ -335,29 +633,33 @@
 
   <header>
     <div class="hero">
-      <img src="perfil.png" alt="Foto de perfil de Quinito Pedro Luís">
-      <h1>QUINITO PEDRO LUÍS</h1>
-      <p><strong>Data Manager | Data Analyst Specialist | IT Support Specialist</strong></p>
-      <p class="location">📍 Zambézia, Moçambique (Disponível para Relocalização)</p>
-      <p style="max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1rem; opacity: 0.9;">
-        Especialista em TI, Infraestrutura e Ciência de Dados com experiência consolidada na administração de sistemas e gestão de grandes volumes de dados (1,8 milhões de registros). Focado na automação de processos, segurança cibernética e na transformação de dados complexos em dashboards estratégicos que otimizam a tomada de decisões corporativas.
-      </p>
-      <div class="social-icons">
-        <a href="https://github.com/Quinito-pedro" target="_blank"><img src="github.png" alt="GitHub"></a>
-        <a href="https://youtube.com/@quinitopedroluis8800" target="_blank"><img src="yout.jpeg" alt="YouTube"></a>
-        <a href="https://www.linkedin.com/in/quinito-pedro-luís" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
-        <a href="mailto:quinitopedrol@gmail.com" target="_blank"><img src="images (1).jpeg" alt="Email"></a>
+      <div class="hero-content">
+        <h1>QUINITO PEDRO LUÍS</h1>
+        <div class="hero-subtitle">Data Manager | Data Analyst Specialist | IT Support Specialist</div>
+        <div class="location">📍 Zambézia, Moçambique (Disponível para Relocalização)</div>
+        <p class="hero-description">
+          Especialista em TI, Infraestrutura e Ciência de Dados com experiência consolidada na administração de sistemas e gestão de grandes volumes de dados (1,8 milhões de registros). Focado na automação de processos, segurança cibernética e na transformação de dados complexos em dashboards estratégicos que otimizam a tomada de decisões corporativas.
+        </p>
+        <div class="social-icons">
+          <a href="https://github.com/Quinito-pedro" target="_blank" aria-label="GitHub"><img src="github.png" alt="GitHub"></a>
+          <a href="https://youtube.com/@quinitopedroluis8800" target="_blank" aria-label="YouTube"><img src="yout.jpeg" alt="YouTube"></a>
+          <a href="https://www.linkedin.com/in/quinito-pedro-luís" target="_blank" aria-label="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a>
+          <a href="mailto:quinitopedrol@gmail.com" target="_blank" aria-label="Email"><img src="images (1).jpeg" alt="Email"></a>
+        </div>
+      </div>
+      <div class="hero-image-container">
+        <img src="perfil.png" alt="Foto de perfil de Quinito Pedro Luís">
       </div>
     </div>
   </header>
 
   <main>
     
-    <section class="cv-section" style="text-align: center;">
+    <section class="cv-section">
       <h2>Meu Currículo</h2>
-      <p style="margin-bottom: 1.5rem;">Confira os meus currículos profissionais completos para download ou visualização detalhada das vertentes de atuação.</p>
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="cv.html" class="read-more" style="background-color: var(--accent);">Visualizar Currículo Web</a>
+      <p>Confira os meus currículos profissionais completos para download ou visualização detalhada das vertentes de atuação.</p>
+      <div>
+        <a href="cv.html" class="read-more">Visualizar Currículo Web</a>
       </div>
     </section>
 
@@ -469,7 +771,7 @@
             <span class="skill-tag" style="background-color: #e0f2fe;">Português (Nativo)</span>
             <span class="skill-tag" style="background-color: #e0f2fe;">Inglês (Intermédio Técnico)</span>
           </div>
-          <h3 style="font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem;">Línguas Locais</h3>
+          <h3 style="font-size: 1rem; margin-top: 1.5rem; margin-bottom: 0.75rem; border-left: 3px solid #10b981; padding-left: 0.5rem;">Línguas Locais</h3>
           <div class="skills-list">
             <span class="skill-tag">Chuabo</span>
             <span class="skill-tag">Lomwe</span>
@@ -483,10 +785,10 @@
 
     <section class="education-section">
       <h2>Formação Académica</h2>
-      <div style="max-width: 900px; margin: 0 auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--accent);">
-        <h3 style="font-size: 1.3rem; color: var(--text-dark);">Licenciatura em Engenharia Informática</h3>
-        <p style="color: var(--primary); font-weight: 600;">UnISCED</p>
-        <p style="font-size: 0.9rem; color: var(--secondary);">Período: 2022 - 2025 (Em curso)</p>
+      <div class="education-card">
+        <h3>Licenciatura em Engenharia Informática</h3>
+        <p class="institution">UnISCED</p>
+        <p class="period">Período: 2022 - 2025 (Em curso)</p>
       </div>
     </section>
 
@@ -495,80 +797,102 @@
       <div class="cards">
 
         <div class="card">
-          <h3>Mozambique Digital Platform</h3>
-          <h4>Governo Digital de Moçambique</h4>
-          <p>Otimização de sistemas críticos de serviço público nacional (INATRO, DIC), permitindo o acesso rápido a documentos digitalizados e <span class="metric">elevando a eficiência operacional em 50%</span>.</p>
+          <div>
+            <h3>Mozambique Digital Platform</h3>
+            <h4>Governo Digital de Moçambique</h4>
+            <p>Otimização de sistemas críticos de serviço público nacional (INATRO, DIC), permitindo o acesso rápido a documentos digitalizados e <span class="metric">elevando a eficiência operacional em 50%</span>.</p>
+          </div>
           <a href="https://prototipo-git-main-quinito-pedros-projects.vercel.app/" class="read-more" target="_blank">Acessar o link</a>
         </div>
 
         <div class="card">
-          <h3>Aprenda Jogando</h3>
-          <h4>Aplicação Educacional</h4>
-          <p>Um aplicativo interativo de jogo para aprendizado de línguas nativas que funciona totalmente offline, estruturado em mais de 9 níveis dinâmicos de proficiência.</p>
-          <a href="https://quinito-pedro.github.io/Meujogo" target="_blank">Acessar o link</a>
+          <div>
+            <h3>Aprenda Jogando</h3>
+            <h4>Aplicação Educacional</h4>
+            <p>Um aplicativo interativo de jogo para aprendizado de línguas nativas que funciona totalmente offline, estruturado em mais de 9 níveis dinâmicos de proficiência.</p>
+          </div>
+          <a href="https://quinito-pedro.github.io/Meujogo" class="read-more" target="_blank">Acessar o link</a>
         </div>
 
         <div class="card">
-          <h3>Sistema USSD do INSS Moçambique</h3>
-          <h4>Solução Offline Corporativa</h4>
-          <p>Protótipo inspirado no ecossistema "M-Contribuição". Desenvolvido para simular os serviços de consulta do INSS de forma 100% offline, <span class="metric">reduzindo o tempo de consulta em 70%</span> para usuários sem conectividade à internet.</p>
+          <div>
+            <h3>Sistema USSD do INSS Moçambique</h3>
+            <h4>Solução Offline Corporativa</h4>
+            <p>Protótipo inspirado no ecossistema "M-Contribuição". Desenvolvido para simular os serviços de consulta do INSS de forma 100% offline, <span class="metric">reduzindo o tempo de consulta em 70%</span> para usuários sem conectividade à internet.</p>
+          </div>
           <a href="https://quinito-pedro.github.io/ussd_inss/" target="_blank" class="read-more">Acessar o link</a>
         </div>
 
         <div class="card">
-          <h3>Sabores da Terra</h3>
-          <h4>Sistema de Gestão Comercial</h4>
-          <p>Plataforma web integrada para restaurantes que permite ao utilizador final efetuar reservas de mesas, gerir encomendas em tempo real e processar cancelamentos automáticos.</p>
+          <div>
+            <h3>Sabores da Terra</h3>
+            <h4>Sistema de Gestão Comercial</h4>
+            <p>Plataforma web integrada para restaurantes que permite ao utilizador final efetuar reservas de mesas, gerir encomendas em tempo real e processar cancelamentos automáticos.</p>
+          </div>
           <a href="https://sabores-da-terra-two.vercel.app/index.html" class="read-more" target="_blank">Acessar o link</a>
         </div>
 
         <div class="card">
-          <h3>Planilha de Vendas Automatizada</h3>
-          <h4>Business Intelligence</h4>
-          <p>Ferramenta desenvolvida para bares e restaurantes focada no controlo rigoroso de fluxos de caixa, monitoramento de stock e geração automatizada de relatórios gerenciais.</p>
-        </div>
+          <div>
+            <h3>Planilha de Vendas Automatizada</h3>
+            <h4>Business Intelligence</h4>
+            <p>Ferramenta desenvolvida para bares e restaurantes focada no controlo rigoroso de fluxos de caixa, monitoramento de stock e geração automatizada de relatórios gerenciais.</p>
+          </div>
+          </div>
 
       </div>
     </section>
 
     <section class="certifications">
       <h2>Certificações e Diplomas</h2>
-      <details>
-        <summary style="cursor: pointer; font-weight: bold; color: var(--primary); text-align: center; margin-bottom: 1.5rem;">Clique aqui para expandir e visualizar as certificações</summary>
-        <div class="cards" style="margin-top: 1rem;">
-          <div class="card">
-            <h3>Google IT Support Professional Certificate</h3>
-            <p>Certificação profissional emitida pela Google cobrindo infraestrutura, redes, sistemas operativos e suporte técnico.</p>
-          </div>
-          <div class="card">
-            <h3>Automação de Sistemas</h3>
-            <p>Certificação profissional emitida pelo Ministério da Educação / IFRS.</p>
-          </div>
-          <div class="card">
-            <h3>Manutenção de Computadores</h3>
-            <p>Certificação técnica emitida pelo Ministério da Educação / IFRS.</p>
-          </div>
-          <div class="card">
-            <h3>Segurança de Dados e Cibersegurança</h3>
-            <p>Especialização focada na mitigação de riscos, gestão de acessos e proteção de dados corporativos.</p>
-          </div>
-          <div class="card">
-            <h3>Diploma em Informática</h3>
-            <p>Certificado de conclusão do curso de informática.</p>
-            <a href="https://drive.google.com/file/d/1tOQdDoI4LcvhojBZJ0DVYiWb1RoaLOQm/view" class="read-more" target="_blank">Acessar Diploma</a>
-          </div>
-          <div class="card">
-            <h3>Aconselhamento e Testagem em Saúde</h3>
-            <p>Certificado de competências na área de saúde comunitária e suporte a pacientes TARV.</p>
-            <a href="https://drive.google.com/file/d/1bl7siFWtSJyEFI2B49lR_NTJCCWs-_22/view" class="read-more" target="_blank">Acessar Certificado</a>
-          </div>
-          <div class="card">
-            <h3>Carta de Referência Profissional</h3>
-            <p>Validação institucional das competências demonstradas no estágio técnico de TI junto ao INSS.</p>
-            <a href="https://drive.google.com/file/d/1gFy7m2TVEP4hzAl24Civ3yivDZmz-VuQ/view" class="read-more" target="_blank">Acessar Carta</a>
+      <div class="certifications-wrapper">
+        <button class="cert-trigger-btn" id="certToggleBtn" type="button">
+          <span>Visualizar Certificações e Diplomas</span>
+          <span class="arrow-icon">▼</span>
+        </button>
+        
+        <div class="cert-content-pane" id="certContentPane">
+          <div class="cards">
+            <div class="card">
+              <h3>Google IT Support Professional Certificate</h3>
+              <p>Certificação profissional emitida pela Google cobrindo infraestrutura, redes, sistemas operativos e suporte técnico.</p>
+            </div>
+            <div class="card">
+              <h3>Automação de Sistemas</h3>
+              <p>Certificação profissional emitida pelo Ministério da Educação / IFRS.</p>
+            </div>
+            <div class="card">
+              <h3>Manutenção de Computadores</h3>
+              <p>Certificação técnica emitida pelo Ministério da Educação / IFRS.</p>
+            </div>
+            <div class="card">
+              <h3>Segurança de Dados e Cibersegurança</h3>
+              <p>Especialização focada na mitigação de riscos, gestão de acessos e proteção de dados corporativos.</p>
+            </div>
+            <div class="card">
+              <div>
+                <h3>Diploma em Informática</h3>
+                <p>Certificado de conclusão do curso de informática.</p>
+              </div>
+              <a href="https://drive.google.com/file/d/1tOQdDoI4LcvhojBZJ0DVYiWb1RoaLOQm/view" class="read-more" target="_blank">Acessar Diploma</a>
+            </div>
+            <div class="card">
+              <div>
+                <h3>Aconselhamento e Testagem em Saúde</h3>
+                <p>Certificado de competências na área de saúde comunitária e suporte a pacientes TARV.</p>
+              </div>
+              <a href="https://drive.google.com/file/d/1bl7siFWtSJyEFI2B49lR_NTJCCWs-_22/view" class="read-more" target="_blank">Acessar Certificado</a>
+            </div>
+            <div class="card">
+              <div>
+                <h3>Carta de Referência Profissional</h3>
+                <p>Validação institucional das competências demonstradas no estágio técnico de TI junto ao INSS.</p>
+              </div>
+              <a href="https://drive.google.com/file/d/1gFy7m2TVEP4hzAl24Civ3yivDZmz-VuQ/view" class="read-more" target="_blank">Acessar Carta</a>
+            </div>
           </div>
         </div>
-      </details>
+      </div>
     </section>
   </main>
 
@@ -578,11 +902,28 @@
   </footer>
 
   <script>
-    // Atualizar o ano no rodapé dinamicamente
-    document.getElementById("2026").textContent = new Date().getFullYear();
+    // Correção da lógica do script de renderização do Ano Correto
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // Controle dinâmico e animado do painel customizado de Certificações (Substituto do <details>)
+    const toggleBtn = document.getElementById('certToggleBtn');
+    const contentPane = document.getElementById('certContentPane');
+
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = contentPane.classList.contains('open');
+      
+      if (isOpen) {
+        contentPane.classList.remove('open');
+        toggleBtn.classList.remove('active');
+        contentPane.style.maxHeight = "0";
+      } else {
+        contentPane.classList.add('open');
+        toggleBtn.classList.add('active');
+        // Adiciona altura dinamicamente para comportar os itens em grid sem quebras ruins
+        contentPane.style.maxHeight = contentPane.scrollHeight + 100 + "px";
+      }
+    });
   </script>
 
 </body>
 </html>
-
-```
