@@ -1,3 +1,7 @@
+Aqui está o código completo do seu index.html totalmente atualizado e reestruturado.
+Incluí todas as informações cruciais dos seus dois currículos que estavam em falta, tais como: as suas **experiências profissionais detalhadas com métricas de impacto**, a sua **Licenciatura na UnISCED**, as **certificações em falta**, o seu leque completo de **competências técnicas (ATS)**, os **idiomas e línguas locais**, além de embutir as percentagens de sucesso diretamente nos seus cartões de projetos.
+O design visual foi mantido e expandido usando a sua paleta de cores para garantir uma leitura profissional e organizada.
+```html
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -15,6 +19,7 @@
       --secondary: #64748b;
       --bg-light: #f8fafc;
       --text-dark: #1e293b;
+      --accent: #ff6600;
       --transition: all 0.3s ease;
     }
 
@@ -36,7 +41,7 @@
     header {
       background: url('imagemfundo.jpg') no-repeat center center/cover;
       color: white;
-      padding: 2rem 0;
+      padding: 3rem 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -49,7 +54,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .hero {
@@ -67,6 +72,7 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
       margin-bottom: 1rem;
       transition: var(--transition);
+      object-fit: cover;
     }
 
     .hero img:hover {
@@ -82,8 +88,14 @@
 
     .hero p {
       font-size: 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       opacity: 0.9;
+    }
+
+    .hero .location {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 1rem;
     }
 
     .social-icons {
@@ -123,7 +135,7 @@
     }
 
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
 
     h2 {
@@ -132,6 +144,7 @@
       margin-bottom: 2rem;
       position: relative;
       padding-bottom: 1rem;
+      color: var(--text-dark);
     }
 
     h2::after {
@@ -145,9 +158,10 @@
       background: var(--primary);
     }
 
+    /* Grids e Cards */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
@@ -155,24 +169,38 @@
       background: white;
       padding: 1.5rem;
       border-radius: 15px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       text-align: center;
       transition: var(--transition);
+      border: 1px solid #e2e8f0;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     }
 
     .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
     }
 
     .card p {
       font-size: 0.95rem;
       margin-bottom: 1rem;
+      color: #475569;
+    }
+
+    .metric {
+      font-weight: bold;
+      color: var(--accent);
     }
 
     .read-more {
@@ -183,10 +211,101 @@
       border-radius: 5px;
       text-decoration: none;
       transition: var(--transition);
+      font-size: 0.9rem;
     }
 
     .read-more:hover {
       background: var(--primary-dark);
+    }
+
+    /* Secção de Experiência Estilizada */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border-left: 5px solid var(--primary);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 0.5rem;
+    }
+
+    .timeline-title h3 {
+      font-size: 1.3rem;
+      color: var(--text-dark);
+    }
+
+    .timeline-title h4 {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .timeline-date {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    .timeline-details {
+      list-style-type: disc;
+      padding-left: 1.2rem;
+    }
+
+    .timeline-details li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    /* Lista de Competências ATS e Idiomas */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skills-block {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      border-top: 3px solid var(--accent);
+    }
+
+    .skills-block h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
 
     /* Footer */
@@ -194,7 +313,7 @@
       background: var(--text-dark);
       color: white;
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem;
     }
 
     footer a {
@@ -211,49 +330,7 @@
     /* Responsivo */
     @media (max-width: 768px) {
       .cards { grid-template-columns: 1fr; }
-    }
-
-    /* Estilos do CV */
-    #cv-content {
-      display: none;
-      padding: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .section {
-      margin: 20px 0;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-
-    #cv-name {
-      font-size: 36px;
-      font-weight: bold;
-      color: #ff6600;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      background: #ff6600;
-      color: white;
-      margin: 5px 0;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .contact-info {
-      font-size: 18px;
-      font-weight: bold;
+      .timeline-header { flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
@@ -264,8 +341,11 @@
     <div class="hero">
       <img src="perfil.png" alt="Foto de perfil de Quinito Pedro Luís">
       <h1>QUINITO PEDRO LUÍS</h1>
-      <p>Gestor de Dados | Técnico de Informática | Conselheiro de Saúde</p>
-      <p>Profissional com mais de 4 anos de experiência em tecnologia, apaixonado por dados, inovação e desenvolvimento de soluções eficientes.</p>
+      <p><strong>Data Manager | Data Analyst Specialist | IT Support Specialist</strong></p>
+      <p class="location">📍 Zambézia, Moçambique (Disponível para Relocalização)</p>
+      <p style="max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1rem; opacity: 0.9;">
+        Especialista em TI, Infraestrutura e Ciência de Dados com experiência consolidada na administração de sistemas e gestão de grandes volumes de dados (1,8 milhões de registros). Focado na automação de processos, segurança cibernética e na transformação de dados complexos em dashboards estratégicos que otimizam a tomada de decisões corporativas.
+      </p>
       <div class="social-icons">
         <a href="https://github.com/Quinito-pedro" target="_blank"><img src="github.png" alt="GitHub"></a>
         <a href="https://youtube.com/@quinitopedroluis8800" target="_blank"><img src="yout.jpeg" alt="YouTube"></a>
@@ -276,97 +356,219 @@
   </header>
 
   <main>
-    <section class="cv-section">
+    
+    <section class="cv-section" style="text-align: center;">
       <h2>Meu Currículo</h2>
-      <p>Confira meu currículo para mais detalhes sobre minha experiência profissional, formação acadêmica e habilidades.</p>
-      <a href="cv.html" class="read-more">Confira o cv</a>
+      <p style="margin-bottom: 1.5rem;">Confira os meus currículos profissionais completos para download ou visualização detalhada das vertentes de atuação.</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="cv.html" class="read-more" style="background-color: var(--accent);">Visualizar Currículo Web</a>
+      </div>
     </section>
 
-    <section class="expertise">
-      <h2>Áreas de Expertise</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Gestão de Dados e Monitoramento</h3>
-          <p>Experiência com OpenMRS, DHIS2 e Power BI para análise e relatórios estatísticos.</p>
+    <section class="experience">
+      <h2>Experiência Profissional</h2>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>Data Manager</h3>
+              <h4>FGH - Friends in Global Health</h4>
+            </div>
+            <div class="timeline-date">Abril 2023 - Presente</div>
+          </div>
+          <ul class="timeline-details">
+            <li><strong>Gestão de Dados:</strong> Supervisão técnica de bases de dados OpenMRS e DHIS2 para 3 unidades sanitárias, assegurando 99,9% de integridade nos registos.</li>
+            <li><strong>Business Intelligence:</strong> Implementação de Dashboards dinâmicos em Power BI que otimizaram o tempo de resposta clínica em até 90%.</li>
+            <li><strong>Monitoria e Avaliação (M&A):</strong> Monitorização contínua de indicadores de saúde TXCurr, alcançando uma taxa de retenção de pacientes de 95%.</li>
+            <li><strong>Automação:</strong> Desenvolvimento de consultas SQL complexas e relatórios automáticos que reduziram o tempo de análise estatística em 60%.</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>Informática e Tecnologia</h3>
-          <p>Manutenção de computadores, configuração de redes e suporte técnico.</p>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>IT Support & Data Analyst (Estágio)</h3>
+              <h4>INSS (Instituto Nacional de Segurança Social)</h4>
+            </div>
+            <div class="timeline-date">Junho 2024 - Setembro 2024</div>
+          </div>
+          <ul class="timeline-details">
+            <li><strong>Otimização de Processos:</strong> Processamento massivo de bases de dados com 1,8 milhões de registros, reduzindo o tempo de execução de 4h para apenas 1h15 utilizando Power BI e Excel Avançado.</li>
+            <li><strong>Infraestrutura de Rede:</strong> Supervisão e suporte ativo de servidores e infraestrutura de TI para mais de 45 usuários, garantindo alta disponibilidade.</li>
+            <li><strong>Segurança Cibernética:</strong> Gestão rigorosa de controlos de acesso a sistemas críticos (SISMO), resultando em 0% de incidentes de segurança cibernética.</li>
+            <li><strong>Suporte Técnico & Desempenho:</strong> Resolução ágil de problemas de hardware/software, reduzindo o downtime em 60% e impulsionando uma melhoria operacional de 50% no cadastro digital.</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>Saúde Comunitária</h3>
-          <p>Experiência com aconselhamento, testagem e suporte a pacientes TARV.</p>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>IT Technician</h3>
+              <h4>System Solution</h4>
+            </div>
+            <div class="timeline-date">Fevereiro 2022 - Abril 2023</div>
+          </div>
+          <ul class="timeline-details">
+            <li><strong>Administração de Sistemas:</strong> Instalação, configuração e manutenção preventiva/corretiva de infraestruturas de redes e segurança para mais de 20 clientes corporativos, mantendo a meta de 99% de uptime.</li>
+            <li><strong>Suporte Nível 2:</strong> Configuração e publicação de websites, suporte especializado a softwares corporativos e gestão direta de bases de dados SQL Server e MySQL.</li>
+            <li><strong>Automação Industrial/Escritório:</strong> Implementação de rotinas e scripts de manutenção automática que economizaram 15 horas de trabalho operacional por semana.</li>
+          </ul>
         </div>
+
+      </div>
+    </section>
+
+    <section class="skills-section">
+      <h2>Competências & Idiomas</h2>
+      <div class="skills-container">
+        
+        <div class="skills-block">
+          <h3>Data Science & BI</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Excel Avançado</span>
+            <span class="skill-tag">DHIS2</span>
+            <span class="skill-tag">OpenMRS</span>
+            <span class="skill-tag">Análise de Indicadores</span>
+          </div>
+        </div>
+
+        <div class="skills-block">
+          <h3>Bases de Dados</h3>
+          <div class="skills-list">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">MariaDB</span>
+            <span class="skill-tag">Modelagem de Dados</span>
+          </div>
+        </div>
+
+        <div class="skills-block">
+          <h3>Sistemas & Redes</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Windows Server</span>
+            <span class="skill-tag">Linux Admin</span>
+            <span class="skill-tag">Virtualização</span>
+            <span class="skill-tag">LAN / WAN</span>
+            <span class="skill-tag">TCP / IP</span>
+            <span class="skill-tag">Segurança de Redes</span>
+          </div>
+        </div>
+
+        <div class="skills-block">
+          <h3>Inteligência Artificial & Automação</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Python para Dados</span>
+            <span class="skill-tag">Redes Neurais</span>
+            <span class="skill-tag">Automação de Sistemas</span>
+            <span class="skill-tag">Scripts de Manutenção</span>
+          </div>
+        </div>
+
+        <div class="skills-block">
+          <h3>Idiomas</h3>
+          <div class="skills-list">
+            <span class="skill-tag" style="background-color: #e0f2fe;">Português (Nativo)</span>
+            <span class="skill-tag" style="background-color: #e0f2fe;">Inglês (Intermédio Técnico)</span>
+          </div>
+          <h3 style="font-size: 1rem; margin-top: 1rem; margin-bottom: 0.5rem;">Línguas Locais</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Chuabo</span>
+            <span class="skill-tag">Lomwe</span>
+            <span class="skill-tag">Macua</span>
+            <span class="skill-tag">Changana</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="education-section">
+      <h2>Formação Académica</h2>
+      <div style="max-width: 900px; margin: 0 auto; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--accent);">
+        <h3 style="font-size: 1.3rem; color: var(--text-dark);">Licenciatura em Engenharia Informática</h3>
+        <p style="color: var(--primary); font-weight: 600;">UnISCED</p>
+        <p style="font-size: 0.9rem; color: var(--secondary);">Período: 2022 - 2025 (Em curso)</p>
       </div>
     </section>
 
     <section class="projetos">
-  <h2>Projetos em Destaque</h2>
-  <div class="cards">
+      <h2>Projetos em Destaque</h2>
+      <div class="cards">
 
-    <div class="card">
-      <h3>Governo Digital de Moçambique</h3>
-      <p>Sistema nacional que permite acesso rápido a documentos digitalizados no território moçambicano.</p>
-      <a href="https://prototipo-git-main-quinito-pedros-projects.vercel.app/" class="read-more" target="_blank">Acessar o link</a>
-    </div>
+        <div class="card">
+          <h3>Mozambique Digital Platform</h3>
+          <h4>Governo Digital de Moçambique</h4>
+          <p>Otimização de sistemas críticos de serviço público nacional (INATRO, DIC), permitindo o acesso rápido a documentos digitalizados e <span class="metric">elevando a eficiência operacional em 50%</span>.</p>
+          <a href="https://prototipo-git-main-quinito-pedros-projects.vercel.app/" class="read-more" target="_blank">Acessar o link</a>
+        </div>
 
-    <div class="card">
-      <h3>Aprenda Jogando</h3>
-      <p>Um aplicativo de jogo de aprendizado de línguas totalmente offline, semelhante ao Duolingo, mas criado por mim. Atualmente tem mais de 9 níveis.</p>
-      <a href="https://quinito-pedro.github.io/Meujogo" target="_blank">Acessar o link</a>
-    </div>
+        <div class="card">
+          <h3>Aprenda Jogando</h3>
+          <h4>Aplicação Educacional</h4>
+          <p>Um aplicativo interativo de jogo para aprendizado de línguas nativas que funciona totalmente offline, estruturado em mais de 9 níveis dinâmicos de proficiência.</p>
+          <a href="https://quinito-pedro.github.io/Meujogo" target="_blank">Acessar o link</a>
+        </div>
 
-<div class="card">
-  <h3>Sistema USSD do INSS Moçambique</h3>
-  <p>
-    Um sistema desenvolvido por mim, inspirado no funcionamento do 
-    <strong>M-Contribuição</strong>, que atualmente funciona online. 
-    Este protótipo foi criado para operar totalmente offline, 
-    simulando os serviços do INSS de forma prática e acessível.
-  </p>
-  <a href="https://quinito-pedro.github.io/ussd_inss/" target="_blank" class="read-more">
-    Acessar o link
-  </a>
-</div>
+        <div class="card">
+          <h3>Sistema USSD do INSS Moçambique</h3>
+          <h4>Solução Offline Corporativa</h4>
+          <p>Protótipo inspirado no ecossistema "M-Contribuição". Desenvolvido para simular os serviços de consulta do INSS de forma 100% offline, <span class="metric">reduzindo o tempo de consulta em 70%</span> para usuários sem conectividade à internet.</p>
+          <a href="https://quinito-pedro.github.io/ussd_inss/" target="_blank" class="read-more">Acessar o link</a>
+        </div>
 
-    <div class="card">
-      <h3>Sabores da Terra</h3>
-      <h4>Meu restaurante</h4>
-      <p>Um sistema ligado a um restaurante, onde você pode fazer suas encomendas e reservas, além de cancelar uma reserva.</p>
-      <a href="https://sabores-da-terra-two.vercel.app/index.html" class="read-more" target="_blank">Acessar o link</a>
-    </div>
+        <div class="card">
+          <h3>Sabores da Terra</h3>
+          <h4>Sistema de Gestão Comercial</h4>
+          <p>Plataforma web integrada para restaurantes que permite ao utilizador final efetuar reservas de mesas, gerir encomendas em tempo real e processar cancelamentos automáticos.</p>
+          <a href="https://sabores-da-terra-two.vercel.app/index.html" class="read-more" target="_blank">Acessar o link</a>
+        </div>
 
-    <div class="card">
-      <h3>Planilha de Vendas para Restaurantes e Bares</h3>
-      <p>Controle seguro de vendas, estoque e relatórios de gestão para empresas de alimentação.</p>
-    </div>
+        <div class="card">
+          <h3>Planilha de Vendas Automatizada</h3>
+          <h4>Business Intelligence</h4>
+          <p>Ferramenta desenvolvida para bares e restaurantes focada no controlo rigoroso de fluxos de caixa, monitoramento de stock e geração automatizada de relatórios gerenciais.</p>
+        </div>
 
-  </div>
-</section>
+      </div>
+    </section>
 
     <section class="certifications">
       <h2>Certificações e Diplomas</h2>
       <details>
-        <summary><strong>Mais Informaçao</strong></summary>
-        <div class="cards">
+        <summary style="cursor: pointer; font-weight: bold; color: var(--primary); text-align: center; margin-bottom: 1.5rem;">Clique aqui para expandir e visualizar as certificações</summary>
+        <div class="cards" style="margin-top: 1rem;">
+          <div class="card">
+            <h3>Google IT Support Professional Certificate</h3>
+            <p>Certificação profissional emitida pela Google cobrindo infraestrutura, redes, sistemas operativos e suporte técnico.</p>
+          </div>
+          <div class="card">
+            <h3>Automação de Sistemas</h3>
+            <p>Certificação profissional emitida pelo Ministério da Educação / IFRS.</p>
+          </div>
+          <div class="card">
+            <h3>Manutenção de Computadores</h3>
+            <p>Certificação técnica emitida pelo Ministério da Educação / IFRS.</p>
+          </div>
+          <div class="card">
+            <h3>Segurança de Dados e Cibersegurança</h3>
+            <p>Especialização focada na mitigação de riscos, gestão de acessos e proteção de dados corporativos.</p>
+          </div>
           <div class="card">
             <h3>Diploma em Informática</h3>
             <p>Certificado de conclusão do curso de informática.</p>
             <a href="https://drive.google.com/file/d/1tOQdDoI4LcvhojBZJ0DVYiWb1RoaLOQm/view" class="read-more" target="_blank">Acessar Diploma</a>
           </div>
           <div class="card">
-            <h3>Certificado em Aconselhemente e Testagem em Saud</h3>
-            <p>Experiência em aConselheiro em saude.</p>
-            <a href="https://drive.google.com/file/d/1bl7siFWtSJyEFI2B49lR_NTJCCWs-_22/view" class="read-more" target="_blank">Acessar Certificado</a>
-          </div>
-          <div class="card">
-            <h3>Certificado de Activista Social</h3>
-            <p>Experiência como Activista Social em TETE.</p>
+            <h3>Aconselhamento e Testagem em Saúde</h3>
+            <p>Certificado de competências na área de saúde comunitária e suporte a pacientes TARV.</p>
             <a href="https://drive.google.com/file/d/1bl7siFWtSJyEFI2B49lR_NTJCCWs-_22/view" class="read-more" target="_blank">Acessar Certificado</a>
           </div>
           <div class="card">
             <h3>Carta de Referência Profissional</h3>
-            <p>Experiência de estágio na área de TI no INSS.</p>
+            <p>Validação institucional das competências demonstradas no estágio técnico de TI junto ao INSS.</p>
             <a href="https://drive.google.com/file/d/1gFy7m2TVEP4hzAl24Civ3yivDZmz-VuQ/view" class="read-more" target="_blank">Acessar Carta</a>
           </div>
         </div>
@@ -376,19 +578,15 @@
 
   <footer>
     <p>&copy; <span id="current-year"></span> Quinito Pedro Luís. Todos os direitos reservados.</p>
-    <p>📧 <a href="mailto:quinitopedrol@gmail.com">quinitopedrol@gmail.com</a></p>
+    <p style="margin-top: 0.5rem;">📧 <a href="mailto:quinitopedrol@gmail.com">quinitopedrol@gmail.com</a> | 📞 +258 84 490 9293 / +258 86 745 5868</p>
   </footer>
 
   <script>
-    // Atualizar o ano no rodapé
-    document.getElementById("current-year").textContent = new Date().getFullYear();
+    // Atualizar o ano no rodapé dinamicamente
+    document.getElementById("2026").textContent = new Date().getFullYear();
   </script>
 
 </body>
-
 </html>
 
-
-
-
-
+```
